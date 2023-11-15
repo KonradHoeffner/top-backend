@@ -5,54 +5,46 @@
 
     <groupId>care.smith.top</groupId>
     <artifactId>top-backend</artifactId>
-    <version>0.7.0</version>
+    <version>${backend.version}</version>
     <packaging>jar</packaging>
 
     <name>TOP Backend</name>
     <description>Backend of the TOP Framework</description>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.10</version>
-        <relativePath/>
+        <groupId>care.smith.top</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.7.10</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <snakeyaml.version>1.33</snakeyaml.version>
         <jackson-bom.version>2.15.0-rc3</jackson-bom.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>top-api</id>
-            <url>https://maven.pkg.github.com/onto-med/top-api</url>
-        </repository>
-        <repository>
-            <id>top-phenotypic-query</id>
-            <url>https://maven.pkg.github.com/onto-med/top-phenotypic-query</url>
-        </repository>
-        <repository>
-            <id>top-document-query</id>
-            <url>https://maven.pkg.github.com/onto-med/top-document-query</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <!-- TOP framework dependencies -->
         <dependency>
             <groupId>care.smith.top</groupId>
             <artifactId>top-api</artifactId>
-            <version>0.9.7</version>
+            <version>${api.version}</version>
         </dependency>
         <dependency>
             <groupId>care.smith.top</groupId>
             <artifactId>top-phenotypic-query</artifactId>
-            <version>0.7.6</version>
+            <version>${phenotypic-query.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>care.smith.top</groupId>
@@ -67,7 +59,7 @@
         <dependency>
             <groupId>care.smith.top</groupId>
             <artifactId>top-document-query</artifactId>
-            <version>0.7.5</version>
+            <version>${document-query.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>care.smith.top</groupId>
