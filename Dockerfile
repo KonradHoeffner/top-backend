@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM openjdk:11-jdk-slim
+FROM openjdk:17-jdk-slim
 COPY --from=top-base /app/top-backend/target/*.jar /usr/src/top-backend/top-backend.jar
 WORKDIR /usr/src/top-backend
 EXPOSE 8080
